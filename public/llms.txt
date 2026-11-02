@@ -1,0 +1,17 @@
+# ShopSharp
+
+> ShopSharp is a Nigeria-focused marketplace where buyers discover products and contact sellers directly, and sellers create online shops.
+
+## Marketplace
+
+- Homepage: https://shopsharp.com.ng/
+- Browse products and shops: https://shopsharp.com.ng/browse
+- Seller registration: https://shopsharp.com.ng/create-your-shop
+
+## Pages
+
+- Shop pages use the format https://shopsharp.com.ng/shop/{shop-slug}.
+- Product pages use the format https://shopsharp.com.ng/listing/{listing-id}.
+- The sitemap is available at https://shopsharp.com.ng/sitemap.xml.
+
+Shop and product availability may change. Public listing details are provided by their sellers; verify details directly with a seller before making a purchase.

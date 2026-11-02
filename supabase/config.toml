@@ -1,0 +1,29 @@
+[auth]
+additional_redirect_urls = [
+  "https://shopsharp.com.ng/",
+  "https://shopsharp.com.ng/auth/callback",
+  "https://shopsharp.com.ng/reset-password",
+  "https://shopsharp.com.ng/dashboard",
+  "http://localhost:5173/reset-password",
+  "http://localhost:5173/dashboard",
+  "http://127.0.0.1:5173/reset-password",
+  "http://127.0.0.1:5173/dashboard",
+]
+
+[auth.email]
+otp_expiry = 1800
+
+[functions.newsletter-subscribe]
+verify_jwt = false
+
+[functions.brevo-sms]
+verify_jwt = false
+
+[functions.paystack-subscription]
+verify_jwt = false
+
+[functions.notification-push]
+verify_jwt = true
+
+[functions.track-search]
+verify_jwt = false
