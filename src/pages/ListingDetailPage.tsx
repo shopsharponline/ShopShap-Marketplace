@@ -260,7 +260,11 @@ export default function ListingDetailPage({ id }: { id: string }) {
   const whatsAppMessage = listing
     ? [
       `Hi, I'm interested in "${listing.title}" listed for ${formatPrice(Number(listing.price), listing.currency)}. Is it still available?`,
-      listing.image_url || listing.images?.[0],
+      `${window.location.origin}${routeToPath({
+        name: 'listing',
+        id: listing.id,
+        slug: buildListingSlug(listing.title),
+      })}`,
     ].filter(Boolean).join('\n')
     : '';
   const whatsAppUrl = whatsAppNumber

@@ -132,7 +132,9 @@ export function parseLocation(): Route {
   new URLSearchParams(legacyUrl.search).forEach((value, key) => {
     if (!params.has(key)) params.set(key, value);
   });
-  return routeFromPath(legacyUrl.pathname, params.toString());
+  const route = routeFromPath(legacyUrl.pathname, params.toString());
+  window.history.replaceState({}, '', routeToPath(route));
+  return route;
 }
 
 export function routeToPath(route: Route): string {

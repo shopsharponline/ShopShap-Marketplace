@@ -2,7 +2,7 @@ import { Image as ImageIcon, MapPin, Heart, BadgeCheck, Store, ArrowUpRight, Mes
 import { useEffect, useState } from 'react';
 import type { ListingWithCategory } from '@/lib/supabase';
 import { formatPrice, formatTimeAgo } from '@/lib/format';
-import { buildListingSlug, navigate } from '@/lib/router';
+import { buildListingSlug, navigate, routeToPath } from '@/lib/router';
 import { LoyaltyChip } from '@/components/LoyaltyBadge';
 import { normalizeNigerianPhone } from '@/lib/phone';
 import { trackListingEvent } from '@/lib/promotions';
@@ -33,11 +33,15 @@ export default function ListingCard({ listing, saved = false, onToggleSave }: Pr
   const whatsappNumber = listing.seller_phone
     ? normalizeNigerianPhone(listing.seller_phone)?.replace('+', '')
     : null;
-  const productImage = listing.image_url || listing.images?.[0];
   const promoted = Boolean(listing.promoted_until && Date.parse(listing.promoted_until) > Date.now());
+  const productUrl = `${window.location.origin}${routeToPath({
+    name: 'listing',
+    id: listing.id,
+    slug: buildListingSlug(listing.title),
+  })}`;
   const whatsappMessage = [
     `Hi ${listing.shop?.name || listing.seller_name}, I'm interested in "${listing.title}" listed for ${formatPrice(Number(listing.price), listing.currency)} on ShopSharp. Is it still available?`,
-    productImage,
+    productUrl,
   ].filter(Boolean).join('\n');
 
   useEffect(() => {
